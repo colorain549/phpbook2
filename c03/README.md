@@ -1,4 +1,4 @@
-# 第三章 使用数组
+# 第三章 使用数组(20200724)
 ## 3.1 什么是数组
 * 数组 是 用来存储 一系列变量值的 命名区域
 * 存储在数组中的值 称为 数组元素
@@ -7,12 +7,12 @@
 ### 3.2.1 数字索引数组的初始化
 使用array()函数
 ```
-// 使用array()函数
+// 初始化数组
 $products = array('Tires', 'Oil', 'Spark Plugs');
 ```
 使用"[]"字符
 ```
-// 使用"[]"字符
+// 初始化数组
 $products = ['Tires', 'Oil', 'Spark Plugs'];
 ```
 使用range()函数
@@ -97,6 +97,7 @@ foreach ($prices as $key => $value) {
     echo $key . " - " . $value . "<br/>";
 }
 ```
+<font color="red">注意!</font>
 ```
 // 使用 each()结构 列出 数组内容
 $prices = ['Tires'=>100, 'Oil'=>10, 'Spark Plugs'=>4];
@@ -105,6 +106,7 @@ while ($element = each($prices)){
     echo "<br />";
 }
 ```
+<font color="red">注意!</font>
 ```
 // 使用list()结构 和 each()结构 打印数组
 $prices = ['Tires'=>100, 'Oil'=>10, 'Spark Plugs'=>4];
@@ -112,6 +114,7 @@ while(list($product, $price) = each($price)){
     echo $product . " - " . $price . "<br />";
 }
 ```
+<font color="red">注意!</font>
 ```
 // 使用reset()函数将当前元素设置为数组的开始
 $prices = ['Tires'=>100, 'Oil'=>10, 'Spark Plugs'=>4];
@@ -158,7 +161,7 @@ for($row = 0; $row < 3; $row++){
     echo '|<br />';
 }
 ```
-创建含列名称的二维数组
+创建含列名称的二维数组<font color="red">(注意!)</font>
 ```
 $products= array(array('Code' => 'TIR',
                        'Description => 'Tires',
@@ -174,7 +177,7 @@ $products= array(array('Code' => 'TIR',
                        ),
                 );  
 ```
-使用 for 循环遍历 显示内容
+使用 for 循环遍历 显示内容<font color="red">(注意!)</font>
 ```
 $products= array(array('Code' => 'TIR',
                        'Description => 'Tires',
@@ -195,7 +198,7 @@ for ($row = 0; $row < 3; $row++){
          '|' . $products[$row]['Code'] . '|<br />';
 }
 ```
-创建三维数组
+创建三维数组<font color="red">(注意!)</font>
 ```
 $categories = array(array(array('CAR_TIR', 'Tires', 100),
                     array(array('CAR_OIL', 'Oil', 10),
@@ -211,7 +214,7 @@ $categories = array(array(array('CAR_TIR', 'Tires', 100),
                     ),
             );
 ```
-使用嵌套的 for 循环 显示内容
+使用嵌套的 for 循环 显示内容<font color="red">(注意!)</font>
 ```
 $categories = array(array(array('CAR_TIR', 'Tires', 100),
                     array(array('CAR_OIL', 'Oil', 10),
@@ -290,20 +293,18 @@ array_multisort();
 ### 3.7.2 用户定义排序
 | 函数 | 说明 |
 | ---- | ---- |
-| usort() | 略 |
-| uasort() | 略 |
-| uksort() | 略 |
+| usort() | <font color=red>略</font> |
+| uasort() | <font color=red>略</font> |
+| uksort() | <font color=red>略</font> |
 ### 3.7.3 自定义排序反序
-> 略
+> <font color=red>略</font>
 ## 3.8 对数组进行重新排序
 | 函数 | 说明 |
 | ---- | ---- |
 | shuffle() | 将数组各元素进行随机排序 |
 | array_reverse() | 按原来数组顺序的反向排序 |
 ### 3.8.1 使用shuffle()函数
-```
-略
-```
+> <font color=red>略</font>
 ### 3.8.2 逆序数组内容
 | 函数 | 说明 |
 | ---- | ---- |
@@ -311,12 +312,42 @@ array_multisort();
 | array_push() | 将每个新元素添加到数组末尾 |
 | array_pop() | 删除并返回数组末尾的一个元素 |
 ## 3.9 从文件载入数组
-> 略
+> <font color=red>略</font>
+## 3.10 执行其他数组操作 
+如果创建一个新数组，那么当前指针就将被初始化，并指向数组的第一个元素(下标0)
 ### 3.10.1 在数组中浏览: each()、current()、reset()、end()、next()、pos()和prev()
+| 函数 | 说明 |
+| ---- | ---- |
+| current() | 返回第一个元素(下标0) |
+| next() | 指针指向下一个元素(下标1) 指针前移前 返回当前元素 |
+| each() | 指针指向下一个元素(下标1) 指针前移 再返回当前元素|
+| reset()| 返回指向数组第一个元素的指针(下标0) 返回数组的第一个元素|
+| end() | 指针移到数组末尾(下标count($array_name)) 返回数组的最后一个元素|
+| prev() | <font color=red>与next()相反???</font> |
+```
+// 逆序显示一个数组
+$arr = array(1, 2, 3)
+$value = end (array){
+    echo "$value<br />";
+    $value = prev($arr);
+}
+```
 ### 3.10.2 对数组每一个元素应用函数: array_walk()
+> <font color=red>略</font>
 ### 3.10.3 统计数组元素个数: count()、sizeof()、array_count_values()
+| 函数 | 说明 |
+| ---- | ---- |
+| count()| 统计数组元素个数|
+| sizeof()| count()别名函数|
+| array_count_values()| 统计每个特定值在数组中出现的次数 返回一个包含频率表的数组|
+```
+// $ac表明 关键字4，5，1，2，3 分别出现 1，1，3，2，1次
+$array = [4, 5, 1, 2, 3, 1, 2, 1];
+$ac = array_count_values($array); 
+```
 ### 3.10.4 将数组转换成标量变量: extract()
+> <font color=red>略</font>
 ## 3.11 进一步学习
 [参阅PHP的在线手册](http://www.php.net/array)
 ## 3.12 下一章
-> 略
+> <font color=red>略</font>
